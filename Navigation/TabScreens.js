@@ -16,12 +16,12 @@ const DealNav = () => {
       <Stack.Screen
         name="DealScreen"
         component={DealScreen}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="CreateDeal"
         component={CreateDeal}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
@@ -32,12 +32,12 @@ const OrgNav = () => {
       <Stack.Screen
         name="OrganizationScreen"
         component={OrganizationScreen}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="CreateOrg"
         component={CreateOrg}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );
@@ -48,12 +48,12 @@ const ContactNav = () => {
       <Stack.Screen
         name="ContactScreen"
         component={ContactScreen}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="CreateContact"
         component={CreateContact}
-        options={{headerShown: 'false'}}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

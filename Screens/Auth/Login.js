@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import {useState, useEffect} from 'react';
 import imagePath from '../../Constants/imagePath';
-// import Logo from '../Assets/Images/Logo1.png';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 
 // let STORAGE_KEY = '@user_input';
 
@@ -74,14 +74,13 @@ const LoginScreen = ({navigation}) => {
         </Text>
         {/* tahoma, verdana, arial, */}
         <Text style={{fontSize: 20, color: '#444'}}>CRM</Text>
+        <AntDesign name="user" />
         <CustomInput
           style={{flex: 1, padding: 16}}
           placeholder="User Name"
           value={username}
           setValue={setUsername}
-          // url={imagePath.icUser}
         />
-        {/* <Icon name="user" size={30} color="dodgerblue" /> */}
 
         <CustomInput
           placeholder="Password"
