@@ -1,9 +1,20 @@
 import * as React from 'react';
-import {View, Text, Button} from 'react-native';
+import {View, Button, StyleSheet} from 'react-native';
 // import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import AddAgent from '../Screens/Agents/AddAgent';
 import Menue from '../Screens/Home/Menue';
+import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
+import {
+  Avatar,
+  Title,
+  Caption,
+  Paragraph,
+  Drawer,
+  Text,
+  TouchableRipple,
+  Switch,
+} from 'react-native-paper';
 // import ChangePassword from '../Screens/Auth/ChangePassword';
 
 // function CustomDrawerContent(props) {
