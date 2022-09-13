@@ -12,32 +12,12 @@ const Stack = createNativeStackNavigator();
 
 export default function NavigationAuth() {
   return (
-    <Stack.Navigator headerShown="false">
-      <Stack.Screen
-        options={{headerShown: 'false'}}
-        name="LoginScreen"
-        component={LoginScreen}
-      />
-      <Stack.Screen
-        name="CreateAccount"
-        component={CreateAccount}
-        options={{headerShown: 'false'}}
-      />
-      <Stack.Screen
-        name="ConfirmEmail"
-        component={ConfirmEmail}
-        options={{headerShown: 'false'}}
-      />
-      <Stack.Screen
-        name="ForgotPassword"
-        component={ForgotPassword}
-        options={{headerShown: 'false'}}
-      />
-      <Stack.Screen
-        name="ResetPassword"
-        component={ResetPassword}
-        options={{headerShown: 'false'}}
-      />
+    <Stack.Navigator screenOptions={{headerShown: false}}>
+      <Stack.Screen name="LoginScreen" component={LoginScreen} />
+      <Stack.Screen name="CreateAccount" component={CreateAccount} />
+      {/* <Stack.Screen name="ConfirmEmail" component={ConfirmEmail} /> */}
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen name="ResetPassword" component={ResetPassword} />
     </Stack.Navigator>
   );
 }

@@ -30,9 +30,9 @@ const CreateAccount = () => {
     console.warn('Privacy');
   };
   const onSinginPressed = () => {
-    console.warn('Sign In');
+    // console.warn('Sign In');
     //back to login
-    nav.navigate('Login');
+    nav.navigate('LoginScreen');
   };
 
   return (
@@ -60,7 +60,7 @@ const CreateAccount = () => {
         />
         <CustomButton text="Register" onPress={onRegisterPressed} />
 
-        <Text style={style.text}>
+        {/* <Text style={style.text}>
           By registering, you confirm that you accept our{' '}
           <Text style={style.link} onPress={onTermsOfUsePressed}>
             Terms of Use
@@ -69,9 +69,9 @@ const CreateAccount = () => {
           <Text style={style.link} onPress={onPrivacyPressed}>
             Privacy Policy
           </Text>
-          .
-        </Text>
-        <SocialSigninBtn />
+          
+        </Text> */}
+        {/* <SocialSigninBtn /> */}
         <CustomButton
           text="Have an account? Sign in"
           onPress={onSinginPressed}

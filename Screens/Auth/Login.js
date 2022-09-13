@@ -95,7 +95,7 @@ const LoginScreen = ({navigation}) => {
           onPress={onForgotPasswordPressed}
           type="TERTIARY"
         />
-        <SocialSigninBtn />
+        {/* <SocialSigninBtn /> */}
 
         <CustomButton
           text="Don't have an account? Create one"
