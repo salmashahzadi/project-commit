@@ -1,10 +1,13 @@
 import * as React from 'react';
 import {View, Button, StyleSheet} from 'react-native';
 // import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItem,
+} from '@react-navigation/drawer';
 import AddAgent from '../Screens/Agents/AddAgent';
 import Menue from '../Screens/Home/Menue';
-import {DrawerContentScrollView, DrawerItem} from '@react-navigation/drawer';
 import {
   Avatar,
   Title,
