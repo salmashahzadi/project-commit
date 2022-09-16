@@ -1,7 +1,16 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  SafeAreaView,
+  Text,
+  Button,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CustomButton from '../../CustomComponents/CustomButton';
+
 // import {HeaderTitle} from 'react-navigation-stack';
 
 const DealScreen = () => {
@@ -115,26 +124,32 @@ const DealScreen = () => {
   ];
   const nav = useNavigation();
   const onDealPressed = () => {
-    console.warn('Add Deal');
+    // console.warn('Add Deal');
     //add deals
     nav.navigate('CreateDeal');
   };
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.container}>
-        <CustomButton text="Add New Deal" onPress={onDealPressed} />
-        {persons.map(person => {
+    // <ScrollView showsVerticalScrollIndicator={false}>
+    <SafeAreaView style={styles.container}>
+      <CustomButton text="Add New Deal" onPress={onDealPressed} />
+      <FlatList
+        data={persons}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={person => {
           return (
-            <View>
-              <Text style={styles.item}>
-                {person.dealname} {person.contactnum} {person.email}{' '}
-                {person.orgname}{' '}
+            <View style={styles.listItem}>
+              <Text>
+                {person.item.dealname} {'\n'}
+                {person.item.contactnum} {'\n'}
+                {person.item.email}
+                {'\n'}
+                {person.item.orgname}
               </Text>
             </View>
           );
-        })}
-      </View>
-    </ScrollView>
+        }}
+      />
+    </SafeAreaView>
   );
 };
 
@@ -146,9 +161,13 @@ const styles = StyleSheet.create({
     padding: 50,
   },
   item: {
-    padding: 20,
     fontSize: 15,
-    marginTop: 5,
+  },
+  listItem: {
+    backgroundColor: 'orange',
+    borderWidth: 1,
+    borderColor: '#333',
+    padding: 25,
   },
 });
 export default DealScreen;

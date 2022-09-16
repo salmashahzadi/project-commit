@@ -14,12 +14,12 @@ const CreateAccount = () => {
   const nav = useNavigation();
 
   const onRegisterPressed = () => {
-    console.warn('Sign up');
+    // console.warn('Sign up');
     //confirm email
-    nav.navigate('ConfirmEmail');
+    nav.navigate('LoginScreen');
   };
   const onForgotPasswordPressed = () => {
-    console.warn('Forgot password');
+    // console.warn('Forgot password');
     //move to reset password
     nav.navigate('ResetPassword');
   };
@@ -43,20 +43,28 @@ const CreateAccount = () => {
           placeholder="User Name"
           value={username}
           setValue={setUsername}
+          icon="account"
         />
-        <CustomInput placeholder="Email" value={email} setValue={setEmail} />
+        <CustomInput
+          placeholder="Email"
+          value={email}
+          setValue={setEmail}
+          icon={'email'}
+        />
 
         <CustomInput
           placeholder="Password"
           value={password}
           setValue={setPassword}
           secureTextEntry={true}
+          icon={'lock'}
         />
         <CustomInput
           placeholder="Re-enter Password"
           value={passwordRepeat}
           setValue={setPasswordRepeat}
           secureTextEntry={true}
+          icon={'lock'}
         />
         <CustomButton text="Register" onPress={onRegisterPressed} />
 

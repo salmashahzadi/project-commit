@@ -12,14 +12,14 @@ const ResetPassword = () => {
   const nav = useNavigation();
 
   const onSubmitPressed = () => {
-    console.warn('Confirm code');
+    // console.warn('Confirm code');
     //go to reset password
     nav.navigate('ResetPassword');
   };
   const onSinginPressed = () => {
-    console.warn('Sign In');
+    // console.warn('Sign In');
     //sign in screen
-    nav.navigate('Login');
+    nav.navigate('LoginScreen');
   };
 
   return (
@@ -37,6 +37,7 @@ const ResetPassword = () => {
           value={newPassword}
           setValue={setNewPassword}
           secureTextEntry
+          icon={'lock'}
         />
         <CustomButton text="Submit" onPress={onSubmitPressed} />
 

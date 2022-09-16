@@ -5,10 +5,10 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // Import Screens
 // import SplashScreen from '../Screens/SplashScreen/SplashScreen';
-// import Home from '../Screens/Home/Home';
 // import MyDrawer from './Drawer';
 import NavigationAuth from './AuthNav';
 import BottomTab from './BottomTab';
+import MyDrawer from './Drawer';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +27,7 @@ const FinalNavigation = () => {
           component={MyDrawer}
           options={{headerShown: 'false'}}
         /> */}
+
         <Stack.Screen
           name="BottomTab"
           component={BottomTab}

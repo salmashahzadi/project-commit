@@ -1,5 +1,12 @@
 import React from 'react';
-import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  ScrollView,
+  FlatList,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CustomButton from '../../CustomComponents/CustomButton';
 
@@ -104,21 +111,25 @@ const OrganizationScreen = () => {
     nav.navigate('CreateOrg');
   };
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
-      <View style={styles.container}>
-        <CustomButton text="Add New Organization" onPress={onDealPressed} />
-        {persons.map(person => {
+    <View style={styles.container}>
+      <CustomButton text="Add New Organization" onPress={onDealPressed} />
+      <FlatList
+        data={persons}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={person => {
           return (
-            <View>
-              <Text style={styles.item}>
-                {person.dealname} {person.contactnum} {person.email}{' '}
-                {person.orgname}{' '}
+            <View style={styles.listItem}>
+              <Text>
+                {person.item.orgname} {'\n'}
+                {person.item.contactnum} {'\n'}
+                {person.item.email}
+                {'\n'}
               </Text>
             </View>
           );
-        })}
-      </View>
-    </ScrollView>
+        }}
+      />
+    </View>
   );
 };
 
@@ -133,6 +144,12 @@ const styles = StyleSheet.create({
     padding: 20,
     fontSize: 15,
     marginTop: 5,
+  },
+  listItem: {
+    backgroundColor: 'orange',
+    borderWidth: 1,
+    borderColor: '#333',
+    padding: 25,
   },
 });
 export default OrganizationScreen;

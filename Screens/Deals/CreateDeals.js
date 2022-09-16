@@ -14,7 +14,7 @@ const CreateDeal = () => {
   const nav = useNavigation();
 
   const onSavePressed = () => {
-    console.warn('Save');
+    // console.warn('Save');
     //navigate to Deal Screen
     nav.navigate('DealScreen');
   };

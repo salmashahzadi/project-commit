@@ -18,15 +18,15 @@ import {
 import {useState, useEffect} from 'react';
 import imagePath from '../../Constants/imagePath';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 // let STORAGE_KEY = '@user_input';
 
 const LoginScreen = ({navigation}) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const nav = useNavigation();
   const value = {
-    name: 'admin',
+    email: 'salma@test.com',
     password: 'pass123456',
   };
   //function which is responsible for login
@@ -35,6 +35,7 @@ const LoginScreen = ({navigation}) => {
       await AsyncStorage.setItem('user', JSON.stringify(value));
       nav.navigate('BottomTab');
     } catch (error) {
+      alert('incorrect password and email');
       console.log(error);
     }
   };
@@ -74,19 +75,27 @@ const LoginScreen = ({navigation}) => {
         </Text>
         {/* tahoma, verdana, arial, */}
         <Text style={{fontSize: 20, color: '#444'}}>CRM</Text>
-        <AntDesign name="user" />
+
         <CustomInput
           style={{flex: 1, padding: 16}}
-          placeholder="User Name"
-          value={username}
-          setValue={setUsername}
+          placeholder="Email"
+          autoCapitalize="none"
+          keyboardtype="email-address"
+          autoCorrect={false}
+          value={email}
+          setValue={setEmail}
+          icon={'email'}
         />
 
         <CustomInput
           placeholder="Password"
+          autoCapitalize="none"
+          autoCorrect={false}
           value={password}
           setValue={setPassword}
           secureTextEntry={true}
+          icon={'lock'}
+          textContentType="password"
         />
         <CustomButton text="Sign In" onPress={onLoginPressed} />
 

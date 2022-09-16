@@ -26,10 +26,11 @@ const ForgotPassword = () => {
       <View style={style.root}>
         <Text style={style.title}>Reset your Password</Text>
         <CustomInput
-          placeholder="User name"
+          placeholder="Email"
           value={username}
           setValue={setUsername}
           secureTextEntry
+          icon={'email'}
         />
         <CustomButton text="Send" onPress={onSendPressed} />
 
