@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import CustomButton from '../../CustomComponents/CustomButton';
 import CustomInput from '../../CustomComponents/CustomInput';
@@ -16,42 +16,46 @@ import {
   ScrollView,
 } from 'react-native';
 import {useState, useEffect} from 'react';
-import imagePath from '../../Constants/imagePath';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import {AuthContext} from '../../Navigation/AuthProvider';
 // let STORAGE_KEY = '@user_input';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [create, setCreate] = useState(false);
   const nav = useNavigation();
-  const value = {
-    email: 'salma@test.com',
-    password: 'pass123456',
-  };
+
+  // const {login} = useContext(AuthContext);
+
+  // const value = {
+  //   email: 'salma@test.com',
+  //   password: 'pass123456',
+  // };
   //function which is responsible for login
   const onLoginPressed = async () => {
-    try {
-      await AsyncStorage.setItem('user', JSON.stringify(value));
-      nav.navigate('BottomTab');
-    } catch (error) {
-      alert('incorrect password and email');
-      console.log(error);
-    }
+    //   try {
+    //     await AsyncStorage.setItem('user', JSON.stringify(value));
+    //     nav.navigate('BottomTab');
+    //   } catch (error) {
+    //     alert('incorrect password and email');
+    //     console.log(error);
+    //   }
+    // };
+    // console.warn('Sign In');
+    //validate user
+    nav.navigate('BottomTab');
   };
-  // console.warn('Sign In');
-  //validate user
-  // nav.navigate('NavigationAuth');
-
   const onForgotPasswordPressed = () => {
     // console.warn('Forgot password');
     //on forgot password screen
     nav.navigate('ForgotPassword');
   };
 
-  const {height} = useWindowDimensions();
+  // const {height} = useWindowDimensions();
 
-  const onSingupPressed = async () => {
+  const onSingupPressed = () => {
     // console.warn('signup');
     //if don't have account
     nav.navigate('CreateAccount');
@@ -97,20 +101,30 @@ const LoginScreen = ({navigation}) => {
           icon={'lock'}
           textContentType="password"
         />
-        <CustomButton text="Sign In" onPress={onLoginPressed} />
+        {create ? (
+          <></>
+        ) : (
+          <>
+            <CustomButton
+              text="Sign In"
+              onPress={onLoginPressed}
+              // onPress={() => login(email, password)}
+            />
 
-        <CustomButton
-          text="Forgot password?"
-          onPress={onForgotPasswordPressed}
-          type="TERTIARY"
-        />
-        {/* <SocialSigninBtn /> */}
+            <CustomButton
+              text="Forgot password?"
+              onPress={onForgotPasswordPressed}
+              type="TERTIARY"
+            />
+            {/* <SocialSigninBtn /> */}
 
-        <CustomButton
-          text="Don't have an account? Create one"
-          onPress={onSingupPressed}
-          type="TERTIARY"
-        />
+            <CustomButton
+              text="Don't have an account? Create one"
+              onPress={onSingupPressed}
+              type="TERTIARY"
+            />
+          </>
+        )}
       </View>
     </ScrollView>
   );

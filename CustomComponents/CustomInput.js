@@ -1,7 +1,14 @@
 import React from 'react';
 import {View, Text, TextInput, StyleSheet, Image} from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-const CustomInput = ({value, setValue, placeholder, secureTextEntry, icon}) => {
+const CustomInput = ({
+  value,
+  setValue,
+  placeholder,
+  secureTextEntry,
+  icon,
+  ...rest
+}) => {
   return (
     <View style={styles.container}>
       {icon && (
@@ -13,11 +20,14 @@ const CustomInput = ({value, setValue, placeholder, secureTextEntry, icon}) => {
       )}
 
       <TextInput
+        // numberOfLines={1}
+        // placeholderTextColor="#666"
         value={value}
         onChangeText={setValue}
         placeholder={placeholder}
         style={styles.input}
         secureTextEntry={secureTextEntry}
+        {...rest}
       />
     </View>
   );

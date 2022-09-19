@@ -1,21 +1,35 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {useState} from 'react';
 import CustomInput from '../../CustomComponents/CustomInput';
 import CustomButton from '../../CustomComponents/CustomButton';
 import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import SocialSigninBtn from '../../CustomComponents/SocialSigninBtn';
 import {useNavigation} from '@react-navigation/native';
+// import {AuthContext, AuthProvider} from '../../Navigation/AuthProvider';
+import {createUserWithEmailAndPassword} from 'firebase/auth';
+import {authentication} from '../../database/firebase';
 
 const CreateAccount = () => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
+  const [username, setUsername] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [passwordRepeat, setPasswordRepeat] = useState();
+
+  // const handleSignUp = getAuth();
+  // createUserWithEmailAndPassword(authentication, email, password)
+  //   .then(userCredentials => {
+  //     const user = userCredentials.user;
+  //     console.log(user.email);
+  //   })
+  //   .catch(error => alert(error.message));
+
+  // const {register} = useContext(AuthContext);
+
   const nav = useNavigation();
 
   const onRegisterPressed = () => {
-    // console.warn('Sign up');
-    //confirm email
+    //   // console.warn('Sign up');
+    //   //confirm email
     nav.navigate('LoginScreen');
   };
   const onForgotPasswordPressed = () => {
@@ -39,34 +53,43 @@ const CreateAccount = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={style.root}>
         <Text style={style.title}>Create an account</Text>
-        <CustomInput
+        {/* <CustomInput
           placeholder="User Name"
           value={username}
           setValue={setUsername}
           icon="account"
-        />
+        /> */}
         <CustomInput
           placeholder="Email"
           value={email}
-          setValue={setEmail}
+          onChangeText={userEmail => setEmail(userEmail)}
+          // setValue={setEmail}
           icon={'email'}
+          autoCapitalize="none"
+          keyboardType="email-address"
         />
 
         <CustomInput
           placeholder="Password"
           value={password}
-          setValue={setPassword}
+          onChangeText={userPassword => setPassword(userPassword)}
+          // setValue={setPassword}
           secureTextEntry={true}
           icon={'lock'}
         />
         <CustomInput
           placeholder="Re-enter Password"
           value={passwordRepeat}
-          setValue={setPasswordRepeat}
+          onChangeText={userPassword => setPassword(userPassword)}
+          // setValue={setPasswordRepeat}
           secureTextEntry={true}
           icon={'lock'}
         />
-        <CustomButton text="Register" onPress={onRegisterPressed} />
+        <CustomButton
+          text="Register"
+          onPress={onRegisterPressed}
+          // onPress={() => register(email, password)}
+        />
 
         {/* <Text style={style.text}>
           By registering, you confirm that you accept our{' '}

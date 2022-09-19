@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {ContactNav, DealNav, OrgNav} from './TabScreens';
 import MyDrawer from './Drawer';
 import Menue from '../Screens/Home/Menue';
-import imagePath from '../Constants/imagePath';
+// import imagePath from '../Constants/imagePath';
 import {View, Text, Button, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';

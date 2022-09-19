@@ -2,18 +2,13 @@ import 'react-native-gesture-handler';
 import * as React from 'react';
 import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import FinalNavigation from './Navigation/FinalNavigation';
-// import BottomTab from './Navigation/BottomTab';
-// import Menue from './Screens/Home/Menue';
+import ToDo from './Screens/ToDoApp/ToDo';
 
 export default function App() {
-  // const [input, setInput] = useState('');
-
   return (
     <SafeAreaView style={styles.root}>
-      {/* <BottomTab /> */}
-      {/* <Menue /> */}
-      {/* <Text>Hello</Text> */}
-      <FinalNavigation />
+      <ToDo />
+      {/* <FinalNavigation /> */}
     </SafeAreaView>
   );
 }

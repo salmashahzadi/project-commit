@@ -1,11 +1,10 @@
 import React from 'react';
 import 'react-native-gesture-handler';
-// Import Navigators from React Navigation
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 // Import Screens
-// import SplashScreen from '../Screens/SplashScreen/SplashScreen';
-// import MyDrawer from './Drawer';
+import SplashScreen from '../Screens/SplashScreen/SplashScreen';
+
 import NavigationAuth from './AuthNav';
 import BottomTab from './BottomTab';
 import MyDrawer from './Drawer';
@@ -15,8 +14,11 @@ const Stack = createNativeStackNavigator();
 const FinalNavigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator headerShown="false" initialRouteName="NavigationAuth">
+      <Stack.Navigator
+        screenOptions={{headerShown: false}}
+        initialRouteName="SplashScreen">
         {/* Auth Navigator: Include Login and Signup */}
+        <Stack.Screen name="SplashScreen" component={SplashScreen} />
         <Stack.Screen
           name="NavigationAuth"
           component={NavigationAuth}
