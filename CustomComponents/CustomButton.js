@@ -1,29 +1,21 @@
-import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import React from 'react';
+import {View, Text, StyleSheet, Pressable} from 'react-native';
 
-const CustomButton = ({
-  onPress,
-  text,
-  type = "PRIMARY",
-  bgColor,
-  fgColor,
-}) => {
+const CustomButton = ({onPress, text, type = 'PRIMARY', bgColor, fgColor}) => {
   return (
     <Pressable
       onPress={onPress}
       style={[
         styles.container,
         styles[`container_${type}`],
-        bgColor ? { backgroundColor: bgColor } : {},
-      ]}
-    >
+        bgColor ? {backgroundColor: bgColor} : {},
+      ]}>
       <Text
         style={[
           styles.text,
           styles[`text_${type}`],
-          fgColor ? { color: fgColor } : {},
-        ]}
-      >
+          fgColor ? {color: fgColor} : {},
+        ]}>
         {text}
       </Text>
     </Pressable>
@@ -31,30 +23,30 @@ const CustomButton = ({
 };
 const styles = StyleSheet.create({
   container: {
-    width: "100%",
+    width: '100%',
     padding: 15,
-    marginVertical: 5,
-    alignItems: "center",
+    marginVertical: 15,
+    alignItems: 'center',
     borderRadius: 5,
   },
   container_PRIMARY: {
-    backgroundColor: "dodgerblue",
+    backgroundColor: 'dodgerblue',
   },
   container_SECONDARY: {
-    borderColor: "dodgerblue",
+    borderColor: 'dodgerblue',
     borderWidth: 2,
   },
   container_TERTIARY: {},
   text: {
-    fontWeight: "bold",
-    color: "white",
+    fontWeight: 'bold',
+    color: 'white',
   },
   text_TERTIARY: {
-    color: "gray",
+    color: 'gray',
     marginVertical: 5,
   },
   text_SECONDARY: {
-    color: "dodgerblue",
+    color: 'dodgerblue',
   },
 });
 export default CustomButton;

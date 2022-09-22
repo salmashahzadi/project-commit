@@ -19,22 +19,21 @@ const DealScreen = () => {
   const persons = [
     {
       id: '1',
-      dealname: 'Earnest Green',
+      dealname: 'Salma Shahzadi',
       contactnum: '3493493474',
-      email: 'ahsg@email.com',
+      email: 'salma@email.com',
       orgname: 'Ika motors',
-      Time: '9:30am',
     },
     {
       id: '2',
-      dealname: 'Winston Orn',
+      dealname: 'Fatima Zia',
       contactnum: '349232374',
-      email: 'kjsakh@email.com',
+      email: 'fatima@email.com',
       orgname: 'maya & max',
     },
     {
       id: '3',
-      dealname: 'Carlton Collins',
+      dealname: 'Sana Siddique',
       contactnum: '3493493474',
       email: 'ah232@email.com',
       orgname: 'Ika motors',
@@ -146,14 +145,16 @@ const DealScreen = () => {
         renderItem={person => {
           return (
             <View style={styles.listItem}>
-              <Text style={{color: colors.white}}>
+              <Text
+                style={{
+                  color: colors.white,
+                  fontSize: 20,
+                }}>
                 {person.item.dealname} {'\n'}
                 {person.item.contactnum} {'\n'}
                 {person.item.email}
                 {'\n'}
                 {person.item.orgname}
-                {'\n'}
-                {person.item.Time}
               </Text>
             </View>
           );
@@ -169,17 +170,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   item: {
     fontSize: 15,
   },
   listItem: {
     backgroundColor: colors.secondary,
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
-    borderWidth: 1,
-    borderColor: colors.secondary,
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: colors.hotpink,
   },
 });
 export default DealScreen;

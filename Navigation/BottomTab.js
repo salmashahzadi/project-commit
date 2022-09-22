@@ -11,8 +11,12 @@ import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Octicons from 'react-native-vector-icons/Octicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+
 import ToDo from '../Screens/ToDoApp/ToDo';
 import colors from '../config/colors';
+import TaskNavigator from './TaskNavigator';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -21,13 +25,11 @@ export default function BottomTab() {
     // <NavigationContainer>
     <Tab.Navigator
       screenOptions={{
-        tabBarColor: '#f8f4f4',
+        tabBarStyle: {position: 'absolute'},
       }}
-      // style={{flexDirection: 'row'}}
       initialRouteName="Home"
       activeColor={colors.light}
-      inactiveColor="lightgray"
-      barStyle={{paddingBottom: 0}}>
+      inactiveColor="lightgray">
       <Tab.Screen
         name="Home"
         component={Menue}
@@ -44,7 +46,7 @@ export default function BottomTab() {
         component={DealNav}
         options={{
           tabBarLabel: 'Deals',
-          tabBarColor: '#1f65ff',
+          tabBarColor: '#aa556f',
           tabBarIcon: ({color, size}) => (
             <FontAwesome name="dollar" color={color} size={26} />
           ),
@@ -69,6 +71,21 @@ export default function BottomTab() {
           tabBarColor: '#d02860',
           tabBarIcon: ({color, size}) => (
             <Octicons name="organization" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Tasks"
+        component={TaskNavigator}
+        options={{
+          tabBarLabel: 'Tasks',
+          tabBarColor: '#e74c3c',
+          tabBarIcon: ({color, size}) => (
+            <MaterialCommunityIcons
+              name="plus-circle-outline"
+              color={color}
+              size={26}
+            />
           ),
         }}
       />

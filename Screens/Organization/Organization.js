@@ -9,36 +9,42 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CustomButton from '../../CustomComponents/CustomButton';
+import colors from '../../config/colors';
 
 const OrganizationScreen = () => {
   const persons = [
     {
       id: '1',
-      orgname: 'Earnest Green',
+      orgname: 'Sana Siddique',
+      website: 'www.sanaenterprise.com',
       contactnum: '3493493474',
-      email: 'ahsg@email.com',
+      email: 'sana@email.com',
     },
     {
       id: '2',
-      orgname: 'Winston Orn',
+      orgname: 'Salma Shahzadi',
+      website: 'www.ssmtraders.com',
       contactnum: '349232374',
-      email: 'kjsakh@email.com',
+      email: 'salma@email.com',
     },
     {
       id: '3',
-      orgname: 'Carlton Collins',
+      orgname: 'Fatima Zia',
+      website: 'www.fcpeducation.com',
       contactnum: '3493493474',
-      email: 'ah232@email.com',
+      email: 'fatima@email.com',
     },
     {
       id: '4',
       orgname: 'Malcolm Labadie',
+      website: 'www.sanaenterprise.com',
       contactnum: '3493493474',
       email: 'ahsg@email.com',
     },
     {
       id: '5',
       orgname: 'Michelle Dare',
+      website: 'www.sanaenterprise.com',
       contactnum: '3493493474',
       email: 'ahsg@email.com',
     },
@@ -106,7 +112,7 @@ const OrganizationScreen = () => {
   ];
   const nav = useNavigation();
   const onDealPressed = () => {
-    console.warn('Add Organization');
+    // console.warn('Add Organization');
     //add deals
     nav.navigate('CreateOrg');
   };
@@ -114,13 +120,19 @@ const OrganizationScreen = () => {
     <View style={styles.container}>
       <CustomButton text="Add New Organization" onPress={onDealPressed} />
       <FlatList
+        style={{padding: 25}}
         data={persons}
         keyExtractor={(item, index) => index.toString()}
         renderItem={person => {
           return (
             <View style={styles.listItem}>
-              <Text>
+              <Text
+                style={{
+                  color: colors.white,
+                  fontSize: 18,
+                }}>
                 {person.item.orgname} {'\n'}
+                {person.item.website} {'\n'}
                 {person.item.contactnum} {'\n'}
                 {person.item.email}
                 {'\n'}
@@ -138,18 +150,24 @@ const OrganizationScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 50,
+    padding: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   item: {
-    padding: 20,
+    // padding: 20,
     fontSize: 15,
-    marginTop: 5,
+    // marginTop: 5,
   },
   listItem: {
-    backgroundColor: 'orange',
-    borderWidth: 1,
-    borderColor: '#333',
-    padding: 25,
+    backgroundColor: colors.secondary,
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: colors.hotpink,
   },
 });
 export default OrganizationScreen;

@@ -9,28 +9,29 @@ import {
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import CustomButton from '../../CustomComponents/CustomButton';
+import colors from '../../config/colors';
 
 const ContactScreen = () => {
   const persons = [
     {
       id: '1',
-      contactname: 'Earnest Green',
+      contactname: 'Fatima Zia',
       contactnum: '3493493474',
-      email: 'ahsg@email.com',
+      email: 'fatima@email.com',
       orgname: 'Ika motors',
     },
     {
       id: '2',
-      contactname: 'Winston Orn',
+      contactname: 'Sana Siddique',
       contactnum: '349232374',
-      email: 'kjsakh@email.com',
+      email: 'sana@email.com',
       orgname: 'maya & max',
     },
     {
       id: '3',
-      dealname: 'Carlton Collins',
+      contactname: 'Salma Shahzadi',
       contactnum: '3493493474',
-      email: 'ah232@email.com',
+      email: 'salma@email.com',
       orgname: 'Ika motors',
     },
     {
@@ -121,7 +122,7 @@ const ContactScreen = () => {
   ];
   const nav = useNavigation();
   const onContactPressed = () => {
-    console.warn('Add Contact');
+    // console.warn('Add Contact');
     //add deals
     nav.navigate('CreateContact');
   };
@@ -130,12 +131,17 @@ const ContactScreen = () => {
     <View style={styles.container}>
       <CustomButton text="Add New Contact" onPress={onContactPressed} />
       <FlatList
+        style={{padding: 15}}
         data={persons}
         keyExtractor={(item, index) => index.toString()}
         renderItem={person => {
           return (
             <View style={styles.listItem}>
-              <Text>
+              <Text
+                style={{
+                  color: colors.white,
+                  fontSize: 20,
+                }}>
                 {person.item.contactname} {'\n'}
                 {person.item.contactnum} {'\n'}
                 {person.item.email}
@@ -155,18 +161,25 @@ const ContactScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 50,
+    // padding: 50,
+    padding: 20,
+    paddingRight: 10,
+    paddingLeft: 10,
   },
   item: {
-    padding: 20,
+    // padding: 20,
     fontSize: 15,
-    marginTop: 5,
+    // marginTop: 5,
   },
   listItem: {
-    backgroundColor: 'orange',
-    borderWidth: 1,
-    borderColor: '#333',
-    padding: 25,
+    backgroundColor: colors.secondary,
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: colors.hotpink,
   },
 });
 export default ContactScreen;
