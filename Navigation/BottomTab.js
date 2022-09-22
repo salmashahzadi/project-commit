@@ -10,6 +10,9 @@ import {View, Text, Button, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Octicons from 'react-native-vector-icons/Octicons';
+import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import ToDo from '../Screens/ToDoApp/ToDo';
+import colors from '../config/colors';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -17,15 +20,21 @@ export default function BottomTab() {
   return (
     // <NavigationContainer>
     <Tab.Navigator
+      screenOptions={{
+        tabBarColor: '#f8f4f4',
+      }}
+      // style={{flexDirection: 'row'}}
       initialRouteName="Home"
-      activeColor="#f0edf6"
-      inactiveColor="#3e2465"
+      activeColor={colors.light}
+      inactiveColor="lightgray"
       barStyle={{paddingBottom: 0}}>
       <Tab.Screen
         name="Home"
         component={Menue}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarLabel: 'Home',
+          tabBarColor: '#009387',
+          tabBarIcon: ({color, size}) => (
             <AntDesign name="home" color={color} size={26} />
           ),
         }}
@@ -34,7 +43,9 @@ export default function BottomTab() {
         name="Deals"
         component={DealNav}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarLabel: 'Deals',
+          tabBarColor: '#1f65ff',
+          tabBarIcon: ({color, size}) => (
             <FontAwesome name="dollar" color={color} size={26} />
           ),
         }}
@@ -43,7 +54,9 @@ export default function BottomTab() {
         name="Contacts"
         component={ContactNav}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarLabel: 'Contacts',
+          tabBarColor: '#694fad',
+          tabBarIcon: ({color, size}) => (
             <AntDesign name="contacts" color={color} size={26} />
           ),
         }}
@@ -52,7 +65,9 @@ export default function BottomTab() {
         name="Organization"
         component={OrgNav}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarLabel: 'Organizations',
+          tabBarColor: '#d02860',
+          tabBarIcon: ({color, size}) => (
             <Octicons name="organization" color={color} size={26} />
           ),
         }}

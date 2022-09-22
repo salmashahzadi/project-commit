@@ -5,18 +5,20 @@ import CustomButton from '../../CustomComponents/CustomButton';
 import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import SocialSigninBtn from '../../CustomComponents/SocialSigninBtn';
 import {useNavigation} from '@react-navigation/native';
+import AppTextInput from '../../CustomComponents/AppTextInput';
+import AppText from '../../CustomComponents/AppText';
 
 const ForgotPassword = () => {
   const [username, setUsername] = useState('');
   const nav = useNavigation();
 
   const onSendPressed = () => {
-    console.warn('Confirm code');
+    // console.warn('Confirm code');
     //reset password
     nav.navigate('ResetPassword');
   };
   const onSinginPressed = () => {
-    console.warn('Sign In');
+    // console.warn('Sign In');
     //sign in
     nav.navigate('Login');
   };
@@ -25,8 +27,11 @@ const ForgotPassword = () => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={style.root}>
         <Text style={style.title}>Reset your Password</Text>
+        <AppText Reset your Password />
+        {/* <AppTextInput /> */}
+
         <CustomInput
-          placeholder="Email"
+          placeholder="Enter Your Email"
           value={username}
           setValue={setUsername}
           secureTextEntry
@@ -59,8 +64,11 @@ const style = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#051C39',
     marginVertical: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 });
 export default ForgotPassword;

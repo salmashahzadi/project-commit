@@ -66,8 +66,11 @@ const style = StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#051C60',
+    color: '#051C39',
     marginVertical: 10,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
   },
 });
 export default ResetPassword;

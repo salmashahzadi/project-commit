@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import colors from '../../../config/colors';
 
 export default TaskInput = props => {
   const [task, setTask] = useState();
@@ -25,11 +26,15 @@ export default TaskInput = props => {
         value={task}
         onChangeText={text => setTask(text)}
         placeholder={'Write a task'}
-        placeholderTextColor={'#fff'}
+        placeholderTextColor={colors.light}
       />
       <TouchableOpacity onPress={() => handleAddTask(task)}>
         <View style={styles.button}>
-          <MaterialCommunityIcons name="chevron-up" size={24} color="black" />
+          <MaterialCommunityIcons
+            name="chevron-up"
+            size={24}
+            color="darkgray"
+          />
         </View>
       </TouchableOpacity>
     </KeyboardAvoidingView>
@@ -39,7 +44,7 @@ export default TaskInput = props => {
 const styles = StyleSheet.create({
   container: {
     borderColor: '#fff',
-    backgroundColor: '#3E3364',
+    backgroundColor: colors.secondary,
     borderWidth: 1,
     marginHorizontal: 20,
     borderRadius: 12,

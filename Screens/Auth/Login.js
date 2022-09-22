@@ -19,6 +19,7 @@ import {useState, useEffect} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import {AuthContext} from '../../Navigation/AuthProvider';
+import AppButton from '../../CustomComponents/AppButton';
 // let STORAGE_KEY = '@user_input';
 
 const LoginScreen = ({navigation}) => {
@@ -29,31 +30,31 @@ const LoginScreen = ({navigation}) => {
 
   // const {login} = useContext(AuthContext);
 
-  // const value = {
-  //   email: 'salma@test.com',
-  //   password: 'pass123456',
-  // };
+  const value = {
+    email: 'salma@test.com',
+    password: 'pass123456',
+  };
   //function which is responsible for login
   const onLoginPressed = async () => {
-    //   try {
-    //     await AsyncStorage.setItem('user', JSON.stringify(value));
-    //     nav.navigate('BottomTab');
-    //   } catch (error) {
-    //     alert('incorrect password and email');
-    //     console.log(error);
-    //   }
-    // };
-    // console.warn('Sign In');
-    //validate user
-    nav.navigate('BottomTab');
+    try {
+      await AsyncStorage.setItem('user', JSON.stringify(value));
+      nav.navigate('BottomTab');
+    } catch (error) {
+      alert('incorrect password and email');
+      console.log(error);
+    }
   };
+  // console.warn('Sign In');
+  //validate user
+  // nav.navigate('BottomTab');
+  // };
   const onForgotPasswordPressed = () => {
     // console.warn('Forgot password');
     //on forgot password screen
     nav.navigate('ForgotPassword');
   };
 
-  // const {height} = useWindowDimensions();
+  const {height} = useWindowDimensions();
 
   const onSingupPressed = () => {
     // console.warn('signup');
@@ -63,25 +64,13 @@ const LoginScreen = ({navigation}) => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={style.root}>
-        {/* <Image
-          source={Logo}
+        <Image
+          source={require('../../Assets/images/Logo1.png')}
           style={[StyleSheet.Logo, {height: height * 0.3}]}
           resizeMode="center"
-        /> */}
-
-        <Text
-          style={{
-            fontSize: 60,
-            color: 'dodgerblue',
-            fontWeight: 'italic',
-          }}>
-          LS
-        </Text>
-        {/* tahoma, verdana, arial, */}
-        <Text style={{fontSize: 20, color: '#444'}}>CRM</Text>
+        />
 
         <CustomInput
-          style={{flex: 1, padding: 16}}
           placeholder="Email"
           autoCapitalize="none"
           keyboardtype="email-address"
@@ -101,30 +90,27 @@ const LoginScreen = ({navigation}) => {
           icon={'lock'}
           textContentType="password"
         />
-        {create ? (
-          <></>
-        ) : (
-          <>
-            <CustomButton
-              text="Sign In"
-              onPress={onLoginPressed}
-              // onPress={() => login(email, password)}
-            />
 
-            <CustomButton
-              text="Forgot password?"
-              onPress={onForgotPasswordPressed}
-              type="TERTIARY"
-            />
-            {/* <SocialSigninBtn /> */}
+        <CustomButton
+          text="Sign In"
+          onPress={onLoginPressed}
+          // onPress={() => login(email, password)}
+        />
+        {/* <AppButton text="Sign In"
+          onPress={onLoginPressed}/> */}
 
-            <CustomButton
-              text="Don't have an account? Create one"
-              onPress={onSingupPressed}
-              type="TERTIARY"
-            />
-          </>
-        )}
+        <CustomButton
+          text="Forgot password?"
+          onPress={onForgotPasswordPressed}
+          type="TERTIARY"
+        />
+        {/* <SocialSigninBtn /> */}
+
+        <CustomButton
+          text="Don't have an account? Create one"
+          onPress={onSingupPressed}
+          type="TERTIARY"
+        />
       </View>
     </ScrollView>
   );

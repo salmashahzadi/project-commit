@@ -125,7 +125,7 @@ const style = StyleSheet.create({
     padding: 20,
   },
   text: {
-    color: 'gray',
+    color: 'grey',
     margin: 10,
   },
   link: {
