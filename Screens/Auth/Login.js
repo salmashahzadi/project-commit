@@ -36,18 +36,18 @@ const LoginScreen = ({navigation}) => {
   };
   //function which is responsible for login
   const onLoginPressed = async () => {
-    try {
-      await AsyncStorage.setItem('user', JSON.stringify(value));
-      nav.navigate('BottomTab');
-    } catch (error) {
-      alert('incorrect password and email');
-      console.log(error);
-    }
+    //   try {
+    //     await AsyncStorage.setItem('user', JSON.stringify(value));
+    //     nav.navigate('BottomTab');
+    //   } catch (error) {
+    //     alert('incorrect password and email');
+    //     console.log(error);
+    //   }
+    // };
+    // console.warn('Sign In');
+    //validate user
+    nav.navigate('BottomTab');
   };
-  // console.warn('Sign In');
-  //validate user
-  // nav.navigate('BottomTab');
-  // };
   const onForgotPasswordPressed = () => {
     // console.warn('Forgot password');
     //on forgot password screen

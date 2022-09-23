@@ -1,33 +1,102 @@
 import * as React from 'react';
-import {View, Button, Text, StyleSheet} from 'react-native';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {NavigationContainer} from '@react-navigation/native';
-// import BottomTab from '../../Navigation/BottomTab';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-// import MyDrawer from '../../Navigation/Drawer';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
+import colors from '../../config/colors';
+import {Avatar, Card, Button, Title, Paragraph} from 'react-native-paper';
 
-const Stack = createNativeStackNavigator();
 const Menue = () => {
+  const LeftContent = props => <Avatar.Icon {...props} icon="contacts" />;
+  const RightContent = props => <Avatar.Icon {...props} icon="folder" />;
   return (
-    // <Stack.Navigator>
-    //   <Stack.Screen
-    //     name="Bottom Tab"
-    //     component={BottomTab}
-    //     options={{headerShown: false}}
-    //   />
-    // </Stack.Navigator>
     <View>
-      <Text>Hey there welcome</Text>
+      <Text
+        style={{
+          paddingTop: 20,
+          paddingBottom: 10,
+          backgroundColor: colors.light,
+          fontSize: 30,
+          fontWeight: 'bold',
+          alignSelf: 'center',
+          fontStyle: 'normal',
+          color: colors.pri2,
+        }}>
+        Dashboard
+      </Text>
+      <Text></Text>
+      <Card>
+        <Card.Title
+          title="Contacts(120)"
+          subtitle="Contacts created in selected  date range"
+          left={LeftContent}
+        />
+        <Text
+          style={{
+            fontSize: 20,
+            padding: 10,
+            fontWeight: 'bold',
+            alignItems: 'center',
+            color: colors.secondary,
+          }}>
+          13 new contacts
+        </Text>
+        {/* <Card.Content>
+          <Title>Card title</Title>
+          <Paragraph>Card content</Paragraph>
+        </Card.Content> */}
+        <Card.Actions>
+          <Button>⬆</Button>
+          <Button>⬆</Button>
+        </Card.Actions>
+      </Card>
+      <Card>
+        <Card.Title
+          title="Deals(121)"
+          subtitle="Deals created in selected date range"
+          left={RightContent}
+        />
+        <Text
+          style={{
+            fontSize: 20,
+            padding: 10,
+            fontWeight: 'bold',
+            alignItems: 'center',
+            color: colors.secondary,
+          }}>
+          13 new deals
+        </Text>
+        {/* <Card.Content>
+          <Title>Card title</Title>
+          <Paragraph>Card content</Paragraph>
+        </Card.Content> */}
+        <Card.Actions>
+          <Button>⬆</Button>
+          <Button>⬆</Button>
+        </Card.Actions>
+      </Card>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  center: {
+  container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
+    paddingTop: 22,
+  },
+  item: {
+    padding: 10,
+    fontSize: 15,
+    marginTop: 11,
+    width: 150,
+    height: 300,
+  },
+  listItem: {
+    backgroundColor: colors.danger,
+    fontSize: 40,
+    fontWeight: 'bold',
+    padding: 10,
+    marginVertical: 10,
+    marginHorizontal: 10,
+    // borderWidth: 1,
+    // borderColor: colors.hotpink,
   },
 });
 
