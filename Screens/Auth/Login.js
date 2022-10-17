@@ -65,7 +65,7 @@ const LoginScreen = ({navigation}) => {
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={style.root}>
         <Image
-          source={require('../../Assets/images/Logo1.png')}
+          source={require('../../Assets/Images/Logo1.png')}
           style={[StyleSheet.Logo, {height: height * 0.3}]}
           resizeMode="center"
         />
