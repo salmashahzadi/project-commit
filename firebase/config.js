@@ -1,5 +1,8 @@
 import {initializeApp} from 'firebase/app';
 import {getFirestore, collection, getDocs} from 'firebase/firestore/lite';
+import firebase from 'firebase/compat/app';
+import {getAuth} from 'firebase/auth';
+import {getStorage} from 'firebase/storage';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCm7Lyg0aYgSW6qJ6bCC-ZB_TWB7dTHp54',
@@ -11,7 +14,7 @@ const firebaseConfig = {
   appId: '1:118869268102:web:0cf0060db80a32a6d22307',
 };
 const app = initializeApp(firebaseConfig);
-
+export const auth = getAuth(app);
 const db = getFirestore(app);
 
 // Get a list of cities from your database

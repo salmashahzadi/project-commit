@@ -13,6 +13,7 @@ import {
 } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+
 export default function DrawerContent(props) {
   const [isDarkTheme, setIsDarkTheme] = React.useState(false);
   const toggleTheme = () => {

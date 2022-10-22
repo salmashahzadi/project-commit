@@ -18,9 +18,8 @@ import {
 import {useState, useEffect} from 'react';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import {AuthContext} from '../../Navigation/AuthProvider';
 import AppButton from '../../CustomComponents/AppButton';
-// let STORAGE_KEY = '@user_input';
+import {AuthContext} from '../../Navigation/AuthProvider';
 
 const LoginScreen = ({navigation}) => {
   const [email, setEmail] = useState('');
@@ -35,7 +34,7 @@ const LoginScreen = ({navigation}) => {
     password: 'pass123456',
   };
   //function which is responsible for login
-  const onLoginPressed = async () => {
+  const onLoginPressed = () => {
     //   try {
     //     await AsyncStorage.setItem('user', JSON.stringify(value));
     //     nav.navigate('BottomTab');

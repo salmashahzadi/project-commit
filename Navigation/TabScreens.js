@@ -7,6 +7,7 @@ import OrganizationScreen from '../Screens/Organization/Organization';
 import CreateOrg from '../Screens/Organization/CreateOrg';
 import ContactScreen from '../Screens/Contacts/Contact';
 import CreateContact from '../Screens/Contacts/CreateCntct';
+import DrawerContent from '../Screens/Drawer/DrawerNavigatorRoutes';
 
 const Stack = createNativeStackNavigator();
 
@@ -58,5 +59,15 @@ const ContactNav = () => {
     </Stack.Navigator>
   );
 };
-
+// const DrawerNav = () => {
+//   return (
+//     <Stack.Navigator>
+//       <Stack.Screen
+//         name="DrawerContent"
+//         component={DrawerContent}
+//         options={{headerShown: false}}
+//       />
+//     </Stack.Navigator>
+//   );
+// };
 export {DealNav, OrgNav, ContactNav};

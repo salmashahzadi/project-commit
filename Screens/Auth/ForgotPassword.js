@@ -20,7 +20,7 @@ const ForgotPassword = () => {
   const onSinginPressed = () => {
     // console.warn('Sign In');
     //sign in
-    nav.navigate('Login');
+    nav.navigate('LoginScreen');
   };
 
   return (

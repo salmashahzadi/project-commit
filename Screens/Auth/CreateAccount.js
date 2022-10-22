@@ -5,33 +5,58 @@ import CustomButton from '../../CustomComponents/CustomButton';
 import {View, Text, Button, StyleSheet, ScrollView} from 'react-native';
 import SocialSigninBtn from '../../CustomComponents/SocialSigninBtn';
 import {useNavigation} from '@react-navigation/native';
-// import {AuthContext, AuthProvider} from '../../Navigation/AuthProvider';
-import {createUserWithEmailAndPassword} from 'firebase/auth';
-import {authentication} from '../../database/firebase';
-
+import {AuthContext} from '../../Navigation/AuthProvider';
+import {
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendPasswordResetEmail,
+  signOut,
+} from 'firebase/auth';
 const CreateAccount = () => {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [passwordRepeat, setPasswordRepeat] = useState();
 
-  // const handleSignUp = getAuth();
-  // createUserWithEmailAndPassword(authentication, email, password)
-  //   .then(userCredentials => {
-  //     const user = userCredentials.user;
-  //     console.log(user.email);
-  //   })
-  //   .catch(error => alert(error.message));
-
-  // const {register} = useContext(AuthContext);
+  const handleSubmit = () => {
+    //   if (!email) {
+    //     setError('Email required *');
+    //     setValid(false);
+    //     return;
+    //   } else if (!password && password.trim() && password.length > 6) {
+    //     setError('Weak password, minimum 5 chars');
+    //     setValid(false);
+    //     return;
+    //   } else if (!__isValidEmail(email)) {
+    //     setError('Invalid Email');
+    //     setValid(false);
+    //     return;
+    //   }
+    //   __doCreateUser(email, password);
+    // };
+    // const __doCreateUser = async (email, password) => {
+    //   try {
+    //     let response = await auth().createUserWithEmailAndPassword(
+    //       email,
+    //       password,
+    //     );
+    //     if (response) {
+    //       console.log(tag, '?', response);
+    //     }
+    //   } catch (e) {
+    //     console.error(e.message);
+    //   }
+  };
 
   const nav = useNavigation();
-
-  const onRegisterPressed = () => {
-    //   // console.warn('Sign up');
-    //   //confirm email
-    nav.navigate('LoginScreen');
-  };
+  // const onRegisterPressed = () => {
+  //   //   // console.warn('Sign up');
+  //   //   //confirm email
+  //   nav.navigate('LoginScreen');
+  // };
   const onForgotPasswordPressed = () => {
     // console.warn('Forgot password');
     //move to reset password
@@ -52,6 +77,7 @@ const CreateAccount = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       <View style={style.root}>
+        {error && <Alert variant="danger">{error}</Alert>}
         <Text style={style.title}>Create an account</Text>
         {/* <CustomInput
           placeholder="User Name"
@@ -61,9 +87,9 @@ const CreateAccount = () => {
         /> */}
         <CustomInput
           placeholder="Email"
-          value={email}
-          onChangeText={userEmail => setEmail(userEmail)}
-          // setValue={setEmail}
+          // value={email}
+          // onChangeText={userEmail => setEmail(userEmail)}
+          setValue={emailRef}
           icon={'email'}
           autoCapitalize="none"
           keyboardType="email-address"
@@ -71,23 +97,23 @@ const CreateAccount = () => {
 
         <CustomInput
           placeholder="Password"
-          value={password}
-          onChangeText={userPassword => setPassword(userPassword)}
-          // setValue={setPassword}
+          // value={password}
+          // onChangeText={userPassword => setPassword(userPassword)}
+          setValue={passwordRef}
           secureTextEntry={true}
           icon={'lock'}
         />
         <CustomInput
           placeholder="Re-enter Password"
-          value={passwordRepeat}
-          onChangeText={userPassword => setPassword(userPassword)}
-          // setValue={setPasswordRepeat}
+          // value={passwordRepeat}
+          // onChangeText={userPassword => setPassword(userPassword)}
+          setValue={passwordConfirmRef}
           secureTextEntry={true}
           icon={'lock'}
         />
         <CustomButton
           text="Register"
-          onPress={onRegisterPressed}
+          onPress={handleSubmit}
           // onPress={() => register(email, password)}
         />
 

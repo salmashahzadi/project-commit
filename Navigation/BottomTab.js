@@ -3,9 +3,8 @@ import * as React from 'react';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
 import {ContactNav, DealNav, OrgNav} from './TabScreens';
-import MyDrawer from './Drawer';
+import MyDrawer from './NavigationDrawerHeader';
 import Menue from '../Screens/Home/Menue';
-// import imagePath from '../Constants/imagePath';
 import {View, Text, Button, Image} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -13,10 +12,13 @@ import Octicons from 'react-native-vector-icons/Octicons';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-
+import Foundation from 'react-native-vector-icons/Foundation';
 import ToDo from '../Screens/ToDoApp/ToDo';
 import colors from '../config/colors';
 import TaskNavigator from './TaskNavigator';
+import DrawerContent from '../Screens/Drawer/DrawerNavigatorRoutes';
+import DrawerNavigatorRoutes from '../Screens/Drawer/DrawerNavigatorRoutes';
+import DrawerNavigator from './DrawerNav';
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -86,6 +88,17 @@ export default function BottomTab() {
               color={color}
               size={26}
             />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="DrawerNav"
+        component={DrawerNavigator}
+        options={{
+          tabBarLabel: 'Drawer',
+          // tabBarColor: '#e74c38',
+          tabBarIcon: ({color, size}) => (
+            <Foundation name="list" color={color} size={26} />
           ),
         }}
       />

@@ -15,9 +15,29 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 // import CustomButton from '../../CustomComponents/CustomButton';
 import Onboarding from 'react-native-onboarding-swiper';
 
-// const Skip = () => (
-//   <Button title="Skip" color="#000000" backgroundColor="none" />
+// const Skip = ({...props}) => (
+//   <Button title="Skip" color="#000000" backgroundColor="none" {...props} />
 // );
+// const Next = ({...props}) => (
+//   <Button title="Next" color="#000000" backgroundColor="none" {...props} />
+// );
+// const Done = ({...props}) => (
+//   <Button title="Done" color="#000000" backgroundColor="none" {...props} />
+// );
+const Dots = ({selected}) => {
+  let backgroundColor;
+  backgroundColor = selected ? 'rgba(0,0,0,0.8)' : 'rgba(0,0,0,0.3)';
+  return (
+    <View
+      style={{
+        width: 5,
+        height: 5,
+        marginHorizontal: 3,
+        backgroundColor,
+      }}
+    />
+  );
+};
 
 const SplashScreen = ({navigation}) => {
   // State for ActivityIndicator animation
@@ -37,8 +57,11 @@ const SplashScreen = ({navigation}) => {
   return (
     <Onboarding
       // SkipButtonComponent={Skip}
-      onSkip={() => navigation.replace('NavigationAuth')}
-      onDone={() => navigation.navigate('NavigationAuth')}
+      // NextButtonComponent={Next}
+      // DoneButtonComponent={Done}
+      DotComponent={Dots}
+      onSkip={() => navigation.replace('Auths')}
+      onDone={() => navigation.navigate('Auths')}
       pages={[
         {
           backgroundColor: '#a6e4d0',
