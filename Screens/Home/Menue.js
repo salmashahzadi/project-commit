@@ -1,23 +1,25 @@
-import React,{useEffect} from 'react';
+import React, {useEffect} from 'react';
 import {View, Text, StyleSheet, FlatList} from 'react-native';
 import colors from '../../config/colors';
 import {Avatar, Card, Button, Title, Paragraph} from 'react-native-paper';
 import firestore from '@react-native-firebase/firestore';
+
 const Menue = () => {
   const LeftContent = props => <Avatar.Icon {...props} icon="contacts" />;
   const RightContent = props => <Avatar.Icon {...props} icon="folder" />;
+
   useEffect(() => {
     firestore()
-    .collection('Users')
-    .add({
-      name: 'Adil ',
-      age: 12,
-    })
-    .then(() => {
-      console.log('User added!');
-    });
-  }, [])
-  
+      .collection('Users')
+      .add({
+        name: 'Adil ',
+        age: 12,
+      })
+      .then(() => {
+        console.log('User added!');
+      });
+  }, []);
+
   return (
     <View>
       <Text

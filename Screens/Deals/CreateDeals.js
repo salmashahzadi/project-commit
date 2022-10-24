@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Text,
@@ -11,10 +11,30 @@ import CustomButton from '../../CustomComponents/CustomButton';
 import {useNavigation} from '@react-navigation/native';
 import AppText from '../../CustomComponents/AppText';
 import colors from '../../config/colors';
+import {doc, setDoc} from 'firebase/firestore';
+import {db} from '../../firebase/config';
 
 const CreateDeal = () => {
+  const [deal, setDeal] = useState('');
+  const [contact, setContact] = useState('');
+  const [email, setEmail] = useState('');
+  const [org, setOrg] = useState('');
   const nav = useNavigation();
 
+  function create() {
+    setDoc(doc(db, 'deals', 'id'), {
+      deal: deal,
+      contact: contact,
+      email: email,
+      org: org,
+    })
+      .then(() => {
+        console.log('data submitted');
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  }
   const onSavePressed = () => {
     // console.warn('Save');
     //navigate to Deal Screen
@@ -35,6 +55,10 @@ const CreateDeal = () => {
           Add Info
         </Text>
         <Text
+          value={deal}
+          onChangeText={deal => {
+            setDeal(deal);
+          }}
           style={{
             fontSize: 15,
             color: 'dodgerblue',

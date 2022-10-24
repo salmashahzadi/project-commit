@@ -67,7 +67,7 @@ const SplashScreen = ({navigation}) => {
           backgroundColor: '#a6e4d0',
           image: (
             <Image
-              source={require('../../Assets/Images/onboard.png')}
+              source={require('../../Assets/images/onboard.png')}
               style={[StyleSheet.image]}
               resizeMode="center"
             />
@@ -79,7 +79,7 @@ const SplashScreen = ({navigation}) => {
           backgroundColor: '#fdeb93',
           image: (
             <Image
-              source={require('../../Assets/Images/onboard2.png')}
+              source={require('../../Assets/images/onboard2.png')}
               style={[StyleSheet.image]}
               resizeMode="center"
             />
