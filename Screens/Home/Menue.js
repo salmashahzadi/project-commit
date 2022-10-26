@@ -8,17 +8,17 @@ const Menue = () => {
   const LeftContent = props => <Avatar.Icon {...props} icon="contacts" />;
   const RightContent = props => <Avatar.Icon {...props} icon="folder" />;
 
-  useEffect(() => {
-    firestore()
-      .collection('Users')
-      .add({
-        name: 'Adil ',
-        age: 12,
-      })
-      .then(() => {
-        console.log('User added!');
-      });
-  }, []);
+  // useEffect(() => {
+  //   firestore()
+  //     .collection('Users')
+  //     .add({
+  //       name: 'Adil ',
+  //       age: 12,
+  //     })
+  //     .then(() => {
+  //       console.log('User added!');
+  //     });
+  // }, []);
 
   return (
     <View>
